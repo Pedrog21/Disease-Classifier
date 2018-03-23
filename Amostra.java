@@ -18,8 +18,8 @@ public class Amostra {
 		
 	}
 	
-	public int length(Vector<Vector<Integer>> v) {
-		return v.size();
+	public int length() {
+		return vec.size();
 		
 	}
 	
