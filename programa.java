@@ -1,16 +1,20 @@
 package Classes;
 
-import java.util.Vector;
+import java.util.Arrays;
+import java.util.List;
 
 public class programa {
-	public static void main(Vector<Vector<Integer>>[] args) {
-		Vector<Vector<Integer>> vec = new Vector<Vector<Integer>>(4);
-		vec.add(3);
-		vec.add(5);
-		vec.add(2);
-		vec.add(1);
+	
+	public static void main(String[] args) {
+		Amostra amostra = new Amostra(null,0);
+		List<String> c = Arrays.asList("sup1", "sup2", "sup3");
+		amostra.add(c);
+		List<String> d= Arrays.asList("sup4", "sup5", "sup6");
+		amostra.add(d);
 		
-		System.out.println(vec);
+		
+		System.out.println(amostra.length());
+		
 		
 	}
 }
