@@ -28,7 +28,7 @@ public class Amostra {
 
 	public void add(Vector<Integer> v) {
 		vec.add(v);
-		
+		length=length+1;
 	}
 	
 	public int length() {
