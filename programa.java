@@ -7,14 +7,14 @@ public class programa {
 	
 	public static void main(String[] args) {
 		Amostra amostra = new Amostra();
-		List<String> c = Arrays.asList("sup1", "sup2", "sup3","sup5");
+		List<Integer> c = Arrays.asList(1,2,3,4);
 		amostra.add(c);
-		List<String> d= Arrays.asList("sup4", "sup5", "sup6");
-		amostra.add(d);
+		List<Integer> q= Arrays.asList(1,2,6);
+		amostra.add(q);
 	
 		
 		
-		System.out.println(amostra.element(0));
+		System.out.println(amostra.getT());
 		
 		
 	}
