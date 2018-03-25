@@ -17,5 +17,10 @@ public class programa {
 		System.out.println(amostra.getT());
 		
 		
+		List<Integer> a= Arrays.asList(0,1);
+		List<Integer> b= Arrays.asList(1,4);
+		System.out.println(amostra.count(a,b));
+		
+		
 	}
 }
