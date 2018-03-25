@@ -11,11 +11,16 @@ public class Amostra {
 		this.length = length;
 	}
 	
-	public ArrayList<String> getVec() {
+	public Amostra() {
+		this.T =  new ArrayList<String>();
+		this.length = 0;
+	}
+		
+	public ArrayList<String> getT() {
 		return T;
 	}
 
-	public void setVec(ArrayList<String> T) {
+	public void setT(ArrayList<String> T) {
 		this.T = T;
 	}
 	
