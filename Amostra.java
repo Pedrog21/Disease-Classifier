@@ -3,24 +3,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Amostra {
-	private  ArrayList<String> T;
+	private  ArrayList<List<String>> T;
 	private int length;
 	
-	public Amostra(ArrayList<String> T, int length) {
+	public Amostra(ArrayList<List<String>> T, int length) {
 		this.T = T;
 		this.length = length;
 	}
 	
 	public Amostra() {
-		this.T =  new ArrayList<String>();
+		this.T =  new ArrayList<List<String>>();
 		this.length = 0;
 	}
 		
-	public ArrayList<String> getT() {
+	public ArrayList<List<String>> getT() {
 		return T;
 	}
 
-	public void setT(ArrayList<String> T) {
+	public void setT(ArrayList<List<String>> T) {
 		this.T = T;
 	}
 	
@@ -34,7 +34,7 @@ public class Amostra {
 	}
 	
 	public void add(List<String> d) {
-		T.addAll(d);
+		T.add(d);
 		length++;
 	}
 	
@@ -42,7 +42,7 @@ public class Amostra {
 		return length;
 	}
 	
-	public String element(int k){
+	public List<String> element(int k){
 		return T.get(k);
 		
 	}
