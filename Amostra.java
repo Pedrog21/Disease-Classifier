@@ -49,6 +49,18 @@ public class Amostra {
 	
 	
 	
+	public int count(List<Integer> a,List<Integer> b) {
+		int res=0;
+		List<Integer> aux = new ArrayList<>();
+		for(int i=0;i<a.size();i++) {
+			for(int j=0;j<length();j++) {
+				aux=element(j);
+				if(aux.get(a.get(i))==b.get(i))
+					res++;
+			}
+		}
+		return res;
+	}
 
 		
 	
