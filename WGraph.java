@@ -8,6 +8,7 @@ public class WGraph {
 
 	public WGraph(int n) {
 		int i;
+		nodes = new ArrayList<Node>();
 		for(i=0; i<=n; i++) {
 			Node a = new Node(i);
 			nodes.add(a);

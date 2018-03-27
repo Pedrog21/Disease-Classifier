@@ -17,10 +17,12 @@ public class programa {
 		ArrayList<Edges> r = new ArrayList<Edges>();
 		Edges w = new Edges(g,t, 0.2);
 		r.add(w);
-		Node h = new Node(3,r);
+		
+
+		WGraph o = new WGraph(3);
 		
 		
-		System.out.println(h);
+		System.out.println(o);
       
 
 	

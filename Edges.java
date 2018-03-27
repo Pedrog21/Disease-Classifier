@@ -1,7 +1,5 @@
 package Classes;
 
-
-
 public class Edges {
 	public Node start;
 	public Node end;
