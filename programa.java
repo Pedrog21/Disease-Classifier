@@ -1,5 +1,6 @@
 package Classes;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,10 +10,22 @@ public class programa {
 		Amostra amostra = new Amostra();
 		List<Integer> c = Arrays.asList(1,2,3,4);
 		amostra.add(c);
-		List<Integer> q= Arrays.asList(1,2,6);
+		List<Integer> q= Arrays.asList(1,2,6,3);
 		amostra.add(q);
+		Node g = new Node(5);
+		Node t = new Node(3);
+		ArrayList<Edges> r = new ArrayList<Edges>();
+		Edges w = new Edges(g,t, 0.2);
+		r.add(w);
+		Node h = new Node(3,r);
+		
+		
+		System.out.println(h);
+      
+
 	
 		
+	
 		
 		System.out.println(amostra.getT());
 		
