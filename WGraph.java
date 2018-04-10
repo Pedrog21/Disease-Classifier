@@ -43,9 +43,20 @@ public class WGraph {
 	}
 	
 	public void remove_edge(Node a, Node b) {
-		Edges r = new Edges(a,b);
 		ArrayList<Edges> d = getConnections();
-		d.remove(r);
+		int i=0;
+		int l=-1;
+		boolean s=false;
+		while(i<d.size() && !s) {
+			Edges t=new Edges();
+			t=d.get(i);
+			if((t.getStart()==a && t.getEnd()==b) || (t.getStart()==b && t.getEnd()==a)) {
+				s=true;
+				l=i;
+			}
+			i++;
+		}
+		d.remove(l);
 		setConnections(d);
 	}
 	
