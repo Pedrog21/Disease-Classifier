@@ -43,11 +43,8 @@ public class Amostra {
 	}
 	
 	public List<Integer> element(int k){
-		return T.get(k);
-		
+		return T.get(k);	
 	}
-	
-	
 	
 	public int count(List<Integer> a,List<Integer> b) {
 		int res=0;

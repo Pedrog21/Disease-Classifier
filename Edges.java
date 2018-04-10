@@ -10,6 +10,10 @@ public class Edges {
 		this.end=e;
 		this.weight=w;
 	}
+	public Edges(Node s, Node e) {
+		this.start=s;
+		this.end=e;
+	}
 	
 	public Edges() {
 		this.start = null;
@@ -34,6 +38,11 @@ public class Edges {
 	}
 	public void setWeight(double weight) {
 		this.weight = weight;
+	}
+	
+	@Override
+	public String toString() {
+		return "Edges [start=" + start + ", end=" + end + ", weight=" + weight + "]";
 	}
 
 }

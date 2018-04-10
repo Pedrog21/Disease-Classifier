@@ -12,26 +12,22 @@ public class programa {
 		amostra.add(c);
 		List<Integer> q= Arrays.asList(1,2,6,3);
 		amostra.add(q);
-		Node g = new Node(5);
-		Node t = new Node(3);
+		Node f = new Node(2);
+		Node t = new Node(1);
 		ArrayList<Edges> r = new ArrayList<Edges>();
-		Edges w = new Edges(g,t, 0.2);
+		Edges w = new Edges(t,f, 4);
 		r.add(w);
 		
 
-		WGraph o = new WGraph(3);
-		o.add_edge(g,t,2);
+		WGraph o = new WGraph(2);
+		o.add_edge(t,f,2);
+		o.remove_edge(t,f);
 		
 		
 		System.out.println(o);
 		
 
-      
-
-	
-		
-	
-		
+     
 		System.out.println(amostra.getT());
 		
 		
