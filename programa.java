@@ -20,9 +20,12 @@ public class programa {
 		
 
 		WGraph o = new WGraph(3);
+		o.add_edge(g,t,2);
 		
 		
 		System.out.println(o);
+		
+
       
 
 	

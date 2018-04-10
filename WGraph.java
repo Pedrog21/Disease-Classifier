@@ -16,6 +16,13 @@ public class WGraph {
 	
 	}
 	
+	public void add_edge(Node a, Node b, double w) {
+		Edges r = new Edges(a,b,w);
+		ArrayList<Edges> d=a.getConnections();
+		d.add(r);
+		a.setConnections(d);
+	}
+	
 	public ArrayList<Node> getNodes() {
 		return nodes;
 	}
