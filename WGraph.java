@@ -36,10 +36,13 @@ public class WGraph {
 	}
 
 	public void add_edge(Node a, Node b, double w) {
+		ArrayList<Node> g=getNodes();
+		if(a.getKey()<=g.size() && b.getKey()<=g.size()) {
 		Edges r = new Edges(a,b,w);
 		ArrayList<Edges> d = getConnections();
 		d.add(r);
 		setConnections(d);
+		}
 	}
 	
 	public void remove_edge(Node a, Node b) {
