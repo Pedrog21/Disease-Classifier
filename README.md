@@ -6,6 +6,8 @@ Pedro Gonçalves
 
 Tiago Santos
 
+João Miguel
+
 ## Configurar o Repositório:
 
 ### Windows:
