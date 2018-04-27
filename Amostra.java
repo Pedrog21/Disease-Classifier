@@ -19,19 +19,6 @@ public class Amostra {
 	public ArrayList<List<Integer>> getT() {
 		return T;
 	}
-
-	public void setT(ArrayList<List<Integer>> T) {
-		this.T = T;
-	}
-	
-	
-	public int getLength() {
-		return length;
-	}
-
-	public void setLength(int length) {
-		this.length = length;
-	}
 	
 	public void add(List<Integer> d) {
 		T.add(d);
@@ -47,6 +34,7 @@ public class Amostra {
 	}
 	
 	public int count(List<Integer> a,List<Integer> b) {
+		/* a é o vetor de variáveis, b é o vetor de valores */
 		int res=0;
 		List<Integer> aux = new ArrayList<>();
 		for(int i=0;i<a.size();i++) {
@@ -58,7 +46,4 @@ public class Amostra {
 		}
 		return res;
 	}
-
-		
-	
 }
