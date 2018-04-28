@@ -36,13 +36,17 @@ public class Amostra {
 	public int count(List<Integer> a,List<Integer> b) {
 		/* a é o vetor de variáveis, b é o vetor de valores */
 		int res=0;
+		int len=a.size();
 		List<Integer> aux = new ArrayList<>();
-		for(int i=0;i<a.size();i++) {
-			for(int j=0;j<length();j++) {
-				aux=element(j);
-				if(aux.get(a.get(i))==b.get(i))
-					res++;
+		for(int i=0;i<length();i++) {
+			aux=element(i);
+			int j=0;
+			boolean bool=true;
+			while(j<len && bool) {
+				if(aux.get(a.get(j))!=b.get(j)) bool=false;
+				j++;
 			}
+			if(bool) res++;
 		}
 		return res;
 	}
