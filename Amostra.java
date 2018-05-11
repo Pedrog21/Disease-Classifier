@@ -50,4 +50,9 @@ public class Amostra {
 		}
 		return res;
 	}
+	
+	@Override
+	public String toString() {
+		return "Amostra [T=" + T + ", length=" + length + "]";
+	}
 }
