@@ -6,18 +6,9 @@ public class Amostra {
 	private  ArrayList<List<Integer>> T;
 	private int length;
 	
-	public Amostra(ArrayList<List<Integer>> T, int length) {
-		this.T = T;
-		this.length = length;
-	}
-	
 	public Amostra() {
 		this.T =  new ArrayList<List<Integer>>();
 		this.length = 0;
-	}
-		
-	public ArrayList<List<Integer>> getT() {
-		return T;
 	}
 	
 	public void add(List<Integer> d) {
@@ -34,7 +25,7 @@ public class Amostra {
 	}
 	
 	public int count(List<Integer> a,List<Integer> b) {
-		/* a √© o vetor de vari√°veis, b √© o vetor de valores */
+		/* a È o vetor de vari·veis, b È o vetor de valores */
 		int res=0;
 		int len=a.size();
 		List<Integer> aux = new ArrayList<>();
@@ -54,5 +45,13 @@ public class Amostra {
 	@Override
 	public String toString() {
 		return "Amostra [T=" + T + ", length=" + length + "]";
+	}
+	
+	public ArrayList<Integer> domain(int i) {
+		ArrayList<Integer> D = new ArrayList<Integer>();
+		for (int j = 0; j < length; j++) {
+			if (!T.get(j).contains(i)) D.add(i);
+		}
+		return D;
 	}
 }
