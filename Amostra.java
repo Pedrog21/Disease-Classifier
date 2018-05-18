@@ -24,8 +24,8 @@ public class Amostra {
 		return T.get(k);	
 	}
 	
-	public int count(List<Integer> a,List<Integer> b) {
-		/* a È o vetor de vari·veis, b È o vetor de valores */
+	public int count(ArrayList<Integer> a,ArrayList<Integer> b) {
+		/* a √© o vetor de vari√°veis, b √© o vetor de valores */
 		int res=0;
 		int len=a.size();
 		List<Integer> aux = new ArrayList<>();
