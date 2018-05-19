@@ -1,4 +1,4 @@
-package teste1;
+package Classes;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -15,7 +15,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 
-public class aplicaçao2 {
+public class aplicaÃ§ao2 {
 
 	private JFrame frame;
 
@@ -26,7 +26,7 @@ public class aplicaçao2 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					aplicaçao2 window = new aplicaçao2();
+					aplicaÃ§ao2 window = new aplicaÃ§ao2();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +38,7 @@ public class aplicaçao2 {
 	/**
 	 * Create the application.
 	 */
-	public aplicaçao2() {
+	public aplicaÃ§ao2() {
 		initialize();
 	}
 
