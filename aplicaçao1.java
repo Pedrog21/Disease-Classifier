@@ -1,6 +1,8 @@
-package teste1;
+package Classes;
 
 import java.awt.EventQueue;
+import java.util.Random;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -89,22 +91,76 @@ public class aplicaçao1 {
 				
 				try {
 					List<String> lines = Files.readAllLines(fileChooser.getSelectedFile().toPath(), Charset.defaultCharset());
-					List<Integer> T=new ArrayList<>();
+					List<Integer> t=new ArrayList<>();
 					Amostra amostra = new Amostra();
 					for (int i=0; i<lines.size();i++){
 						System.out.println(lines.get(i));
 						textArea.setText(textArea.getText()+"\n"+lines.get(i));
 						String[] aux = lines.get(i).split(",");
-						T.clear();
-						
+						t.clear();
 						for(int j=0;j<aux.length;j++) {
-							T.add(Integer.parseInt(aux[j]));
+							t.add(Integer.parseInt(aux[j]));
 						}
 						List<Integer> d=new ArrayList();
 						for(int k=0;k<t.size();k++) d.add(t.get(k));
 						amostra.add(d);
-			       		}
+			       	}
 					System.out.println(amostra);
+					
+					WGraph2 WGraph = new WGraph2(t.size()-1);
+					ArrayList<Integer> val = new ArrayList<Integer>();
+					for(int i=0;i<t.size();i++) {
+						val.add(0);
+					}
+					for(int i=0;i<amostra.length();i++) {
+						for(int j=0;j<t.size();j++) {
+							if(amostra.element(i).get(j)>val.get(j)) {
+								val.remove(j);
+								val.add(j,amostra.element(i).get(j));
+							}
+						}
+					}
+					double w=0;
+					double aux1=0;
+					double aux2=0;
+					double aux3=0;
+					double aux4=0;
+					ArrayList<Integer> l1= new ArrayList<Integer>();
+					ArrayList<Integer> l2= new ArrayList<Integer>();
+					
+					for(int i=0;i<t.size()-1;i++) {
+						for(int j=0;j<t.size()-1;j++) {
+							if(i!=j) {
+								w=0;
+								for(int k1=0;k1<=val.get(i);k1++) {
+									for(int k2=0;k2<=val.get(j);k2++) {
+										for(int k3=0;k3<=val.get(t.size()-1);k3++) {
+											l1.clear();l2.clear();
+											l1.add(t.size()-1);l2.add(k3);
+											aux3=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
+											l1.add(0,j);l2.add(0,k2);
+											aux2=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
+											l1.add(0,i);l2.add(0,k1);
+											aux1=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
+											l1.remove(1);l2.remove(1);
+											aux4=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
+											if(aux1!=0 && aux2!=0 && aux4!=0) w=w + aux1*Math.log(aux1*aux3/(aux4*aux2));
+										}
+									}
+								}
+								WGraph.add_edge(i, j, w);
+							}
+						}
+					}
+					
+					System.out.println(WGraph);
+					
+					Random rand = new Random();
+					int  n = rand.nextInt(t.size()-1);
+					System.out.println(n);
+					
+					DGraph DGraph = WGraph.MST(n);
+					System.out.println(DGraph);
 					
 					fos = new FileOutputStream("myContribuinte.ser");
 					ObjectOutputStream oos;
