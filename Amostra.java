@@ -34,7 +34,7 @@ public class Amostra {
 			int j=0;
 			boolean bool=true;
 			while(j<len && bool) {
-				if(aux.get(a.get(j))!=b.get(j)) bool=false;
+				if(aux.get(a.get(j))*1.0!=b.get(j)*1.0) bool=false;
 				j++;
 			}
 			if(bool) res++;
