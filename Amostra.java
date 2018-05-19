@@ -1,8 +1,10 @@
 package Classes;
 import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.List;
 
-public class Amostra {
+public class Amostra implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private  ArrayList<List<Integer>> T;
 	private int length;
 	
