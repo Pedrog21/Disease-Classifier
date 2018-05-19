@@ -2,14 +2,18 @@ package Classes;
 
 import java.util.ArrayList;
 
-public class BN {
+import java.io.Serializable;
+
+public class BN implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	
 	private double S;
 	private Amostra T;
 	private ArrayList<ArrayList<Integer>> P;
 	
 	// a assumir que os vertices de G sao X1,...,Xn,C
-	// e que C n„o vai ter parentes
+	// e que C n√£o vai ter parentes
 	public BN(DGraph G, Amostra A, double S) {
 		this.S = S;                           
 		this.T= A;
@@ -25,7 +29,7 @@ public class BN {
 		C.add(V.size() - 1);
 		c.add(V.get(V.size() - 1));
 		double Pr = (T.count(C, c) * 1.0) / (T.length() * 1.0);
-		for (int i = 0; i < P.size() + 1; i++) {
+		for (int i = 0; i < P.size(); i++) {
 			ArrayList<Integer> Twi = new ArrayList<Integer>();
 			ArrayList<Integer> twi = new ArrayList<Integer>();
 			ArrayList<Integer> Tdiwi = new ArrayList<Integer>();
@@ -44,8 +48,3 @@ public class BN {
 		
 	}
 }
-
-/* estou com um pequeno problema de tipos, o count precisa de duas List<Integer>, 
- * mas o parents do DGraph o que d· È um ArrayList<Integer> 
- * (eu usei sempre ArrayList para tudo nos grafos),
- */
