@@ -27,7 +27,7 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JProgressBar;
 
-public class aplicaçao1 {
+public class aplicaÃ§ao1 {
 
 	private JFrame frame;
 
@@ -38,7 +38,7 @@ public class aplicaçao1 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					aplicaçao1 window = new aplicaçao1();
+					aplicaÃ§ao1 window = new aplicaÃ§ao1();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,7 +50,7 @@ public class aplicaçao1 {
 	/**
 	 * Create the application.
 	 */
-	public aplicaçao1() {
+	public aplicaÃ§ao1() {
 		initialize();
 	}
 
@@ -100,7 +100,9 @@ public class aplicaçao1 {
 						for(int j=0;j<aux.length;j++) {
 							T.add(Integer.parseInt(aux[j]));
 						}
-						amostra.add(T);
+						List<Integer> d=new ArrayList();
+						for(int k=0;k<t.size();k++) d.add(t.get(k));
+						amostra.add(d);
 			       		}
 					System.out.println(amostra);
 					
