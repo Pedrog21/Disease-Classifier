@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -101,7 +102,7 @@ public class aplicaçao1 {
 						for(int j=0;j<aux.length;j++) {
 							t.add(Integer.parseInt(aux[j]));
 						}
-						List<Integer> d=new ArrayList();
+						List<Integer> d=new ArrayList<Integer>();
 						for(int k=0;k<t.size();k++) d.add(t.get(k));
 						amostra.add(d);
 			       	}
@@ -162,12 +163,16 @@ public class aplicaçao1 {
 					DGraph DGraph = WGraph.MST(n);
 					System.out.println(DGraph);
 					
-					fos = new FileOutputStream("myContribuinte.ser");
+					BN c = new BN(DGraph,amostra,0.5);
+					
+					System.out.println(c);
+					
+					fos = new FileOutputStream("BayesNetwork.ser");
 					ObjectOutputStream oos;
 					oos = new ObjectOutputStream(fos);
-					//oos.writeObject(c);
-					//a linha acima grava a rede de bayes no disco
+					oos.writeObject(c);
 					oos.close();
+					
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
