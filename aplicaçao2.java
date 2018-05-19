@@ -1,6 +1,7 @@
 package Classes;
 
 import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -14,6 +15,13 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class aplicaçao2 {
 
@@ -53,43 +61,73 @@ public class aplicaçao2 {
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(49, 96, 145, 29);
+		textArea.setBounds(45, 93, 152, 23);
 		frame.getContentPane().add(textArea);
 		
+		JTextArea textArea_1 = new JTextArea();
+		textArea_1.setBounds(190, 164, 213, 22);
+		frame.getContentPane().add(textArea_1);
+		
 		JButton btnClassify = new JButton("Classify");
+		btnClassify.setBounds(251, 94, 152, 23);
 		btnClassify.setBackground(Color.DARK_GRAY);
 		btnClassify.setForeground(Color.ORANGE);
-		btnClassify.setBounds(255, 97, 152, 23);
 		btnClassify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if(textArea.getText().length()>0) {
 				String[] aux = textArea.getText().split(",");
-				List<Integer> T=new ArrayList<>();
+				List<Integer> t=new ArrayList<>();
 				for(int j=0;j<aux.length;j++) {
-					T.add(Integer.parseInt(aux[j]));
+					t.add(Integer.parseInt(aux[j]));
 				}
-				//System.out.println(T);
-			}
+				ArrayList<Integer> d=new ArrayList<Integer>();
+				for(int k=0;k<t.size();k++) d.add(t.get(k));
+				System.out.println(d);
+				
+				try {
+			
+					FileInputStream fis = new FileInputStream("BayesNetwork.ser");
+					ObjectInputStream ois = new ObjectInputStream(fis);
+					BN bayes = (BN) ois.readObject();
+					ois.close();
+
+					System.out.println(bayes);
+					
+					double result = bayes.prob(d);
+					textArea_1.setText(""+result);
+					
+				} catch (FileNotFoundException e2) {
+					e2.printStackTrace();
+				} catch (IOException e2) {
+					e2.printStackTrace();
+				} catch (ClassNotFoundException e2) {
+					e2.printStackTrace();
+				}
+			}}
 		});
 		frame.getContentPane().add(btnClassify);
 		
 		JButton btnResetTextArea = new JButton("Reset Text Area");
+		btnResetTextArea.setBounds(129, 214, 152, 23);
 		btnResetTextArea.setForeground(Color.ORANGE);
 		btnResetTextArea.setBackground(Color.DARK_GRAY);
-		btnResetTextArea.setBounds(255, 147, 152, 23);
 		btnResetTextArea.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textArea.setText("");
+				textArea_1.setText("");
 			}
 		});
 		frame.getContentPane().add(btnResetTextArea);
 		
 		JLabel lblMedicalClassifier = new JLabel("Medical Classifier");
-		lblMedicalClassifier.setFont(new Font("Sitka Display", Font.PLAIN, 20));
 		lblMedicalClassifier.setBounds(147, 11, 306, 42);
+		lblMedicalClassifier.setFont(new Font("Sitka Display", Font.PLAIN, 20));
 		frame.getContentPane().add(lblMedicalClassifier);
 		
-		
-		
-		
+		JLabel lblProbabilidade = new JLabel("Probabilidade:");
+		lblProbabilidade.setBounds(96, 169, 84, 14);
+		frame.getContentPane().add(lblProbabilidade);
+			
 	}
 }
