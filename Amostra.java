@@ -1,4 +1,4 @@
-package Classes;
+package Projecto;
 import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.List;

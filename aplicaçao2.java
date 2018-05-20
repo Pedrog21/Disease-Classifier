@@ -1,4 +1,4 @@
-package Classes;
+package Projecto;
 
 import java.awt.EventQueue;
 
@@ -22,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.JProgressBar;
 
 public class aplicaçao2 {
 
@@ -61,15 +62,15 @@ public class aplicaçao2 {
 		frame.getContentPane().setLayout(null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(45, 93, 152, 23);
+		textArea.setBounds(49, 98, 362, 23);
 		frame.getContentPane().add(textArea);
 		
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(190, 164, 213, 22);
+		textArea_1.setBounds(49, 203, 347, 22);
 		frame.getContentPane().add(textArea_1);
 		
 		JButton btnClassify = new JButton("Classify");
-		btnClassify.setBounds(251, 94, 152, 23);
+		btnClassify.setBounds(147, 133, 152, 23);
 		btnClassify.setBackground(Color.DARK_GRAY);
 		btnClassify.setForeground(Color.ORANGE);
 		btnClassify.addActionListener(new ActionListener() {
@@ -114,7 +115,7 @@ public class aplicaçao2 {
 		frame.getContentPane().add(btnClassify);
 		
 		JButton btnResetTextArea = new JButton("Reset Text Area");
-		btnResetTextArea.setBounds(129, 214, 152, 23);
+		btnResetTextArea.setBounds(147, 237, 152, 23);
 		btnResetTextArea.setForeground(Color.ORANGE);
 		btnResetTextArea.setBackground(Color.DARK_GRAY);
 		btnResetTextArea.addActionListener(new ActionListener() {
@@ -131,8 +132,16 @@ public class aplicaçao2 {
 		frame.getContentPane().add(lblMedicalClassifier);
 		
 		JLabel lblProbabilidade = new JLabel("Result:");
-		lblProbabilidade.setBounds(96, 169, 84, 14);
+		lblProbabilidade.setBounds(49, 186, 84, 14);
 		frame.getContentPane().add(lblProbabilidade);
+		
+		JLabel lblInsertThePatient = new JLabel("Insert the patient parameters here:");
+		lblInsertThePatient.setBounds(49, 81, 262, 16);
+		frame.getContentPane().add(lblInsertThePatient);
+		
+	
+		
+	
 			
 	}
 }

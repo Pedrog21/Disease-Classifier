@@ -1,4 +1,4 @@
-package Classes;
+package Projecto;
 
 import java.awt.EventQueue;
 import java.util.Random;
@@ -29,6 +29,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JProgressBar;
+import javax.swing.JPanel;
 
 public class aplicaçao1 {
 
@@ -72,7 +73,7 @@ public class aplicaçao1 {
 		//textArea.setBounds(250, 137, 117, 41);
 		//frame.getContentPane().add(textArea);
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(46, 81, 150, 100);
+		scrollPane.setBounds(150, 69, 150, 100);
 		frame.getContentPane().add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
@@ -82,7 +83,7 @@ public class aplicaçao1 {
 		JButton btnLerAmostra = new JButton("Read Sample");
 		btnLerAmostra.setForeground(Color.ORANGE);
 		btnLerAmostra.setBackground(Color.DARK_GRAY);
-		btnLerAmostra.setBounds(248, 95, 125, 55);
+		btnLerAmostra.setBounds(160, 181, 130, 55);
 		btnLerAmostra.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				FileOutputStream fos;
@@ -106,7 +107,7 @@ public class aplicaçao1 {
 						amostra.add(d);
 			       	}
 					
-					WGraph WGraph = new WGraph(t.size()-1);
+					WGraph2 WGraph = new WGraph2(t.size()-1);
 				
 					ArrayList<ArrayList<Integer>> dom = new ArrayList<ArrayList<Integer>>();
 					for(int i=0;i<t.size();i++) dom.add(amostra.domain(i));
@@ -172,10 +173,14 @@ public class aplicaçao1 {
 		frame.getContentPane().add(btnLerAmostra);
 		
 		JLabel lblMedicalDiagnosisApp = new JLabel("Medical Diagnosis App");
-		lblMedicalDiagnosisApp.setForeground(Color.DARK_GRAY);
+		lblMedicalDiagnosisApp.setForeground(Color.BLACK);
 		lblMedicalDiagnosisApp.setFont(new Font("Open Sans Semibold", Font.PLAIN, 20));
 		lblMedicalDiagnosisApp.setBounds(123, 11, 332, 46);
 		frame.getContentPane().add(lblMedicalDiagnosisApp);
+	
+		
+		
+		
 		
 	}
 }

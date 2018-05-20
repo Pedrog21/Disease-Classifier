@@ -1,4 +1,4 @@
-package Classes;
+package Projecto;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -70,7 +70,7 @@ class keyNode {
 class NodeComparator implements Comparator<keyNode> {
 	
 	@Override
-    public int compare(keyNode x, keyNode y) { // se x.key for maior, então x é mais pequeno pois a queue orndena de pequeno para o maior
+    public int compare(keyNode x, keyNode y) { // se x.key for maior, entÃ£o x Ã© mais pequeno pois a queue orndena de pequeno para o maior
 		if (x.getK() > y.getK()) return -1;
 		else if (x.getK() < y.getK()) return 1;
 		else return 0;
@@ -122,7 +122,7 @@ public class WGraph2 {
 		ArrayList<Integer> parent = new ArrayList<Integer>();
 		double inf = Double.POSITIVE_INFINITY;
 		for (int i = 0; i < dim; i++) {
-			keyNode node = new keyNode(i, 0.0); 
+			keyNode node = new keyNode(i, -1.0); 
 			nodes.add(node);
 			parent.add(null);
 		}
