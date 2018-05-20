@@ -95,7 +95,6 @@ public class aplicaçao1 {
 					List<Integer> t=new ArrayList<>();
 					Amostra amostra = new Amostra();
 					for (int i=0; i<lines.size();i++){
-						System.out.println(lines.get(i));
 						textArea.setText(textArea.getText()+"\n"+lines.get(i));
 						String[] aux = lines.get(i).split(",");
 						t.clear();
@@ -106,21 +105,12 @@ public class aplicaçao1 {
 						for(int k=0;k<t.size();k++) d.add(t.get(k));
 						amostra.add(d);
 			       	}
-					System.out.println(amostra);
 					
 					WGraph2 WGraph = new WGraph2(t.size()-1);
-					ArrayList<Integer> val = new ArrayList<Integer>();
-					for(int i=0;i<t.size();i++) {
-						val.add(0);
-					}
-					for(int i=0;i<amostra.length();i++) {
-						for(int j=0;j<t.size();j++) {
-							if(amostra.element(i).get(j)>val.get(j)) {
-								val.remove(j);
-								val.add(j,amostra.element(i).get(j));
-							}
-						}
-					}
+				
+					ArrayList<ArrayList<Integer>> dom = new ArrayList<ArrayList<Integer>>();
+					for(int i=0;i<t.size();i++) dom.add(amostra.domain(i));
+					
 					double w=0;
 					double aux1=0;
 					double aux2=0;
@@ -133,15 +123,15 @@ public class aplicaçao1 {
 						for(int j=0;j<t.size()-1;j++) {
 							if(i!=j) {
 								w=0;
-								for(int k1=0;k1<=val.get(i);k1++) {
-									for(int k2=0;k2<=val.get(j);k2++) {
-										for(int k3=0;k3<=val.get(t.size()-1);k3++) {
+								for(int k1=0;k1<dom.get(i).size();k1++) {
+									for(int k2=0;k2<dom.get(j).size();k2++) {
+										for(int k3=0;k3<dom.get(t.size()-1).size();k3++) {
 											l1.clear();l2.clear();
-											l1.add(t.size()-1);l2.add(k3);
+											l1.add(t.size()-1);l2.add(dom.get(t.size()-1).get(k3));
 											aux3=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
-											l1.add(0,j);l2.add(0,k2);
+											l1.add(0,j);l2.add(0,dom.get(j).get(k2));
 											aux2=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
-											l1.add(0,i);l2.add(0,k1);
+											l1.add(0,i);l2.add(0,dom.get(i).get(k1));
 											aux1=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
 											l1.remove(1);l2.remove(1);
 											aux4=amostra.count(l1, l2)*1.0/(amostra.length()*1.0);
@@ -154,14 +144,10 @@ public class aplicaçao1 {
 						}
 					}
 					
-					System.out.println(WGraph);
 					
 					Random rand = new Random();
 					int  n = rand.nextInt(t.size()-1);
-					System.out.println(n);
-					
 					DGraph DGraph = WGraph.MST(n);
-					System.out.println(DGraph);
 					
 					BN c = new BN(DGraph,amostra,0.5);
 					
