@@ -52,7 +52,7 @@ public class Amostra implements Serializable {
 	public ArrayList<Integer> domain(int i) {
 		ArrayList<Integer> D = new ArrayList<Integer>();
 		for (int j = 0; j < length; j++) {
-			if (!T.get(j).contains(i)) D.add(i);
+			if (!D.contains(T.get(j).get(i))) D.add(T.get(j).get(i));
 		}
 		return D;
 	}
