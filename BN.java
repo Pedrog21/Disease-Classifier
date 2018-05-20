@@ -1,24 +1,21 @@
 package Classes;
 
 import java.util.ArrayList;
-
 import java.io.Serializable;
 
 public class BN implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	
 	private double S;
 	private Amostra T;
 	private ArrayList<ArrayList<Integer>> P;
 	
-	// a assumir que os vertices de G sao X1,...,Xn,C
-	// e que C não vai ter parentes
+	
 	public BN(DGraph G, Amostra A, double S) {
 		this.S = S;                           
 		this.T= A;
 		P = new ArrayList<ArrayList<Integer>>();
-		for (int i = 0; i < G.get_dim() - 1; i++) {
+		for (int i = 0; i < G.get_dim(); i++) {
 			P.add(G.parents(i));
 		}
 	}
@@ -46,5 +43,10 @@ public class BN implements Serializable {
 		}
 		return Pr;
 		
+	}
+
+	@Override
+	public String toString() {
+		return "BN [S=" + S + ", T=" + T + ", P=" + P + "]";
 	}
 }
