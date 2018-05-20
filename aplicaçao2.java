@@ -83,7 +83,6 @@ public class aplicaçao2 {
 				}
 				ArrayList<Integer> d=new ArrayList<Integer>();
 				for(int k=0;k<t.size();k++) d.add(t.get(k));
-				System.out.println(d);
 				
 				try {
 			
@@ -91,11 +90,17 @@ public class aplicaçao2 {
 					ObjectInputStream ois = new ObjectInputStream(fis);
 					BN bayes = (BN) ois.readObject();
 					ois.close();
-
-					System.out.println(bayes);
 					
-					double result = bayes.prob(d);
-					textArea_1.setText(""+result);
+					d.add(1);
+					double result1 = bayes.prob(d);
+					d.set(d.size()-1, 0);
+					double result2 = bayes.prob(d);
+					
+					if(result1>result2) {
+						textArea_1.setText("It is likely that the patient has the disease");
+					} else {
+						textArea_1.setText("It is not likely that the patient has the disease");
+					}
 					
 				} catch (FileNotFoundException e2) {
 					e2.printStackTrace();
@@ -125,7 +130,7 @@ public class aplicaçao2 {
 		lblMedicalClassifier.setFont(new Font("Sitka Display", Font.PLAIN, 20));
 		frame.getContentPane().add(lblMedicalClassifier);
 		
-		JLabel lblProbabilidade = new JLabel("Probabilidade:");
+		JLabel lblProbabilidade = new JLabel("Result:");
 		lblProbabilidade.setBounds(96, 169, 84, 14);
 		frame.getContentPane().add(lblProbabilidade);
 			
