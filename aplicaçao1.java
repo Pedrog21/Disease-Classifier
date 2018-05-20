@@ -106,7 +106,7 @@ public class aplicaçao1 {
 						amostra.add(d);
 			       	}
 					
-					WGraph2 WGraph = new WGraph2(t.size()-1);
+					WGraph WGraph = new WGraph(t.size()-1);
 				
 					ArrayList<ArrayList<Integer>> dom = new ArrayList<ArrayList<Integer>>();
 					for(int i=0;i<t.size();i++) dom.add(amostra.domain(i));
